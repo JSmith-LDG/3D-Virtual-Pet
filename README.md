@@ -4,7 +4,7 @@ A 3D virtual pet running on a $5 microcontroller. Software-rendered. No GPU.
 
 Every vertex transform, triangle rasterization, and pixel write is software. No 3D accelerator. No floating-point SIMD. The renderer is a dual-core producer/consumer pipeline written specifically for the ESP32-S3.
 
-https://github.com/user-attachments/assets/demo-video.mp4
+[Full demo video](assets/demo.mp4)
 
 ## Hardware
 
