@@ -195,7 +195,7 @@ Some of these will happen. Most won't. The project is shipped.
 ## Lessons
 
 - Measure first. I spent two days convinced the rasterizer was slow. It wasn't. The profiler said vertex transform was 237 ms. I didn't believe it. I ran the profiler three more times. Then I fixed it.
-- SIMD is not always SIMD. The ESP32-S3 has vector instructions. Great! Except they're 8/16-bit integer only. I spent a morning reading the ISA manual before accepting I couldn't use them. That morning saved me a week of wasted work.
+- I assumed SIMD would save me. It didn't. ESP32-S3 vector instructions are integer only. My entire pipeline is float.
 - Memory hierarchy matters more than clock speed. PSRAM is 3-4x slower than SRAM for random access. I put the framebuffer in PSRAM because 8 MB >> 512 KB. The stuttering was immediate and confusing. Moving it back to SRAM fixed it. I still don't fully understand the bus arbitration.
 - Shipping is a feature. 60 FPS is achievable. 34 FPS is shipped. I keep telling myself I'll go back and optimize the room geometry cache. I probably won't.
 - Dual-core is easy to describe, hard to balance. Core 1 spends most of the frame waiting. The win was reducing Core 0's work, not balancing the cores. I spent a week trying to make them "even" before realizing that was the wrong goal.
